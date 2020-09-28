@@ -1,6 +1,6 @@
 package com.programozzteis.cardealer.cardealer.car;
 
-public enum Cartype {
+public enum CarType {
 
     BMW, PEUGEOT, VW, SKODA, KIA;
 
