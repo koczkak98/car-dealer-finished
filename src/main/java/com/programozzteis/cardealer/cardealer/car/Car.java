@@ -1,6 +1,6 @@
 package com.programozzteis.cardealer.cardealer.car;
 
-import com.programozzteis.cardealer.cardealer.salesmans.Salesmans;
+import com.programozzteis.cardealer.cardealer.salesmans.Salesman;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -18,7 +18,7 @@ public class Car {
     @Column(name = "car_type")
     private CarType type;
 
-    @DateTimeFormat(pattern = "yyyy.MM.dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "car_prod_date")
     private LocalDate prodYear;
 
@@ -31,17 +31,23 @@ public class Car {
     @Column(name = "car_price")
     private int price;
 
+    @ManyToOne
+    @JoinColumn(name = "car_salesman_id")
+    private Salesman salesman;
 
-    public LocalDate getProdYear() {
-        return prodYear;
-    }
+    /** GETTERS & SETTERS */
 
-    public void setProdYear(LocalDate prodYear) {
-        this.prodYear = prodYear;
-    }
 
     public Integer getId() {
         return id;
+    }
+
+    public Salesman getSalesman() {
+        return salesman;
+    }
+
+    public void setSalesman(Salesman salesman) {
+        this.salesman = salesman;
     }
 
     public void setId(Integer id) {
@@ -54,6 +60,14 @@ public class Car {
 
     public void setType(CarType type) {
         this.type = type;
+    }
+
+    public LocalDate getProdYear() {
+        return prodYear;
+    }
+
+    public void setProdYear(LocalDate prodYear) {
+        this.prodYear = prodYear;
     }
 
     public String getPower() {

@@ -1,5 +1,6 @@
 package com.programozzteis.cardealer.cardealer.car;
 
+import com.programozzteis.cardealer.cardealer.salesmans.ISalesmansRepo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -10,9 +11,10 @@ public class CarController {
 
     private ICarRepository carRepo;
 
-    public CarController(ICarRepository carRepo) {
+    public CarController(ICarRepository carRepo, ISalesmansRepo salesmansRepo) {
         this.carRepo = carRepo;
     }
+
 
     @GetMapping ("/advertisementList.html")
     public String showAdvertisements(Map<String, Object> model)
