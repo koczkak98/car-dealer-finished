@@ -1,6 +1,5 @@
 package com.programozzteis.cardealer.cardealer.customer;
 
-
 import com.programozzteis.cardealer.cardealer.model.NamedEntity;
 
 import javax.persistence.*;

@@ -9,4 +9,6 @@ public interface ICustomerRepository extends Repository<Customer, Integer> {
 
     List<Customer> findAll();
 
+    Customer findById(Integer custId);
+
 }
