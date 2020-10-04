@@ -1,5 +1,6 @@
 package com.programozzteis.cardealer.cardealer.car;
 
+import com.programozzteis.cardealer.cardealer.model.BaseEntity;
 import com.programozzteis.cardealer.cardealer.salesmans.Salesman;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -8,11 +9,8 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "advertisements")
-public class Car {
+public class Car extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "car_type")
@@ -37,21 +35,12 @@ public class Car {
 
     /** GETTERS & SETTERS */
 
-
-    public Integer getId() {
-        return id;
-    }
-
     public Salesman getSalesman() {
         return salesman;
     }
 
     public void setSalesman(Salesman salesman) {
         this.salesman = salesman;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public CarType getType() {
