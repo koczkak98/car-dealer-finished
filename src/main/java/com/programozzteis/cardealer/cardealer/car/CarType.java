@@ -4,4 +4,5 @@ public enum CarType {
 
     BMW, PEUGEOT, VW, SKODA, KIA;
 
+
 }

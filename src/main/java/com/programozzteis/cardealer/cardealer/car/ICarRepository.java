@@ -10,4 +10,9 @@ public interface ICarRepository extends Repository<Car, Integer> {
     /** SQL: SELECT * FROM advertisements */
     List<Car> findAll();
 
+
+    /** SQL: INSERT INTO ... */
+    void save(Car car);
+
+
 }

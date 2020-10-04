@@ -8,12 +8,14 @@ import java.util.List;
 
 public interface ISalesmansRepo extends Repository<Salesman, Integer> {
 
+    /** SQL: SELECT * FROM Salesman */
     List<Salesman> findAll();
 
-    /** SELECT * FROM Salesman WHERE id = {id} */
-    Salesman findById(Integer id);
+    /** SQL: SELECT salesman FROM Salesman salesman WHERE salesman.id = :smanId */
+    Salesman findById(Integer smanId);
+
 
     @Query("SELECT salesman FROM Salesman salesman WHERE salesman.name LIKE ('%' || :name || '%')")
-    List <Salesman> findByName(@Param("name") String name);
+    List<Salesman> findByName(@Param("name") String name);
 
 }
