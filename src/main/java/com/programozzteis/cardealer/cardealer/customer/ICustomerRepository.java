@@ -13,4 +13,5 @@ public interface ICustomerRepository extends Repository<Customer, Integer> {
 
     void save(Customer customer);
 
+    void delete(Customer customer);
 }

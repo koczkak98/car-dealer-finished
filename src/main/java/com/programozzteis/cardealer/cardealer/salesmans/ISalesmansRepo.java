@@ -18,4 +18,5 @@ public interface ISalesmansRepo extends Repository<Salesman, Integer> {
     @Query("SELECT salesman FROM Salesman salesman WHERE salesman.name LIKE ('%' || :name || '%')")
     List<Salesman> findByName(@Param("name") String name);
 
+    void delete(Salesman sman);
 }

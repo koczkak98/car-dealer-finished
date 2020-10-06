@@ -22,7 +22,7 @@ public class CustomerController {
 
     @GetMapping("/customer/{customerId}")
     public String showCustomer (
-            @PathVariable(name = "customerId") int custId,
+            @PathVariable("customerId") int custId,
             Map<String, Object> model)
     {
 
