@@ -11,4 +11,6 @@ public interface ICustomerRepository extends Repository<Customer, Integer> {
 
     Customer findById(Integer custId);
 
+    void save(Customer customer);
+
 }
