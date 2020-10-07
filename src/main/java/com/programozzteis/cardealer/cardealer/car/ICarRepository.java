@@ -1,6 +1,7 @@
 package com.programozzteis.cardealer.cardealer.car;
 
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 
 import java.util.List;
@@ -19,5 +20,7 @@ public interface ICarRepository extends Repository<Car, Integer> {
     void delete (Car car);
 
     void deleteById(Integer carId);
+
+
 
 }

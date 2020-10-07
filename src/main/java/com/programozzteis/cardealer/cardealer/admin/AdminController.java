@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -127,13 +128,20 @@ public class AdminController {
             @PathVariable("adminId") int adminId,
             @PathVariable ("smanId") int smanId,
             Map<String, Object> model
-    )
-    {
+    ) {
         /** search */
         Admin admin = this.adminrepo.findById(adminId);
         Salesman sman = this.smanRepo.findById(smanId);
 
+        List<Car> cars = sman.getCars();
+
         /** Delete */
+
+
+        for (int i = 0; i < cars.size(); i++)
+        {
+            this.carRepo.delete(cars.get(i));
+        }
         smanRepo.delete(sman);
 
         /** Model */

@@ -5,6 +5,7 @@ import com.programozzteis.cardealer.cardealer.car.ICarRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.Map;
@@ -75,6 +76,33 @@ public class CustomerController {
 
 
         return "customers/customerDetails";
+    }
+
+    @GetMapping("/customer/{custId}/edit")
+    public String startEditCust (
+            @PathVariable ("custId") int custId,
+            Map<String, Object> model
+            )
+    {
+        Customer customer = customerRepo.findById(custId);
+
+        model.put("customer", customer);
+
+        return "customers/updateCustomerForm";
+    }
+
+    @PostMapping ("/customer/{custId}/edit")
+    public String finishEditCust (
+            @PathVariable ("custId") int custId,
+            Customer customer,
+            Map<String, Object> model
+            )
+    {
+        customer.setId(custId);
+        this.customerRepo.save(customer);
+
+
+        return "redirect:/customer/" + custId;
     }
 
 
