@@ -71,22 +71,7 @@ public class AdminController {
         /** Delete */
         custRepo.delete(cust);
 
-        /** Model */
-
-        /** Admin */
-        model.put("admins", this.adminrepo.findById(adminId));
-
-        /** Salesman */
-        model.put("salesmans", this.smanRepo.findAll() );
-
-        /** Customer */
-        model.put("customers", this.custRepo.findAll() );
-
-        /** Car */
-        model.put("cars", this.carRepo.findAll() );
-
-
-        return "admins/adminDetails";
+        return "redirect:/admin/" + adminId;
     }
 
     /** Car */
@@ -104,22 +89,7 @@ public class AdminController {
         /** Delete */
         carRepo.delete(car);
 
-        /** Model */
-
-        /** Admin */
-        model.put("admins", this.adminrepo.findById(adminId));
-
-        /** Salesman */
-        model.put("salesmans", this.smanRepo.findAll() );
-
-        /** Customer */
-        model.put("customers", this.custRepo.findAll() );
-
-        /** Car */
-        model.put("cars", this.carRepo.findAll() );
-
-
-        return "admins/adminDetails";
+        return "redirect:/admin/" + adminId;
     }
 
     /** Salesman */
@@ -144,22 +114,7 @@ public class AdminController {
         }
         smanRepo.delete(sman);
 
-        /** Model */
-
-        /** Admin */
-        model.put("admins", this.adminrepo.findById(adminId));
-
-        /** Salesman */
-        model.put("salesmans", this.smanRepo.findAll() );
-
-        /** Customer */
-        model.put("customers", this.custRepo.findAll() );
-
-        /** Car */
-        model.put("cars", this.carRepo.findAll() );
-
-
-        return "admins/adminDetails";
+        return "redirect:/admin/" + adminId;
     }
 
 }
